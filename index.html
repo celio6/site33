@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo da Tecnologia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🚀 Mundo da Tecnologia</h1>
+        <p>Descubra seu futuro no universo da tecnologia!</p>
+    </header>
+
+    <nav>
+        <a href="#inicio">Início</a>
+        <a href="#cursos">Áreas</a>
+        <a href="#sobre">Sobre</a>
+    </nav>
+
+    <section class="inicio" id="inicio">
+        <h2>Qual será seu próximo caminho?</h2>
+        <p>
+            Explore diferentes áreas da tecnologia e descubra
+            qual combina mais com você.
+        </p>
+        <a href="#cursos" class="botao">Começar agora</a>
+    </section>
+
+    <section class="cursos" id="cursos">
+        <h2>Conheça nossas áreas</h2>
+
+        <div class="container">
+
+            <div class="card">
+                <div class="emoji">🔐</div>
+                <h3>Segurança da Informação</h3>
+                <p>
+                    Aprenda como proteger dados, sistemas,
+                    senhas e informações contra ameaças digitais.
+                </p>
+                <button onclick="mostrarInfo('seguranca')">
+                    Saiba mais
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🎮</div>
+                <h3>Game Designer</h3>
+                <p>
+                    Crie jogos, personagens, histórias,
+                    cenários e experiências divertidas.
+                </p>
+                <button onclick="mostrarInfo('game')">
+                    Saiba mais
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="emoji">💻</div>
+                <h3>Ciência da Computação</h3>
+                <p>
+                    Descubra como funcionam os computadores,
+                    programas, algoritmos e tecnologias.
+                </p>
+                <button onclick="mostrarInfo('computacao')">
+                    Saiba mais
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="sobre" id="sobre">
+        <h2>Sobre o projeto</h2>
+        <p>
+            Este site foi criado para apresentar algumas
+            possibilidades profissionais no mundo da tecnologia.
+            Explore, aprenda e descubra novos caminhos!
+        </p>
+    </section>
+
+    <section class="resultado" id="resultado">
+        <h2>Explore uma área!</h2>
+        <p id="descricao">
+            Clique em "Saiba mais" para descobrir informações.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 - Mundo da Tecnologia | Projeto Educacional</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
