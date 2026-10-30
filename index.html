@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -8,89 +9,87 @@
 </head>
 <body>
 
-    <header>
+    <div class="caixa-principal">
+
         <h1>🚀 Mundo da Tecnologia</h1>
-        <p>Descubra seu futuro no universo da tecnologia!</p>
-    </header>
 
-    <nav>
-        <a href="#inicio">Início</a>
-        <a href="#cursos">Áreas</a>
-        <a href="#sobre">Sobre</a>
-    </nav>
+        <!-- TELA INICIAL -->
+        <div class="tela-inicial">
+            <p>
+                Em um mundo cada vez mais conectado,
+                a tecnologia está transformando nossas vidas.
 
-    <section class="inicio" id="inicio">
-        <h2>Qual será seu próximo caminho?</h2>
-        <p>
-            Explore diferentes áreas da tecnologia e descubra
-            qual combina mais com você.
-        </p>
-        <a href="#cursos" class="botao">Começar agora</a>
-    </section>
+                Você recebeu uma missão especial:
+                explorar três áreas incríveis da tecnologia.
 
-    <section class="cursos" id="cursos">
-        <h2>Conheça nossas áreas</h2>
+                Segurança da Informação, Game Designer
+                e Ciência da Computação.
 
-        <div class="container">
+                Cada escolha poderá revelar um novo caminho
+                para o seu futuro.
 
-            <div class="card">
-                <div class="emoji">🔐</div>
-                <h3>Segurança da Informação</h3>
-                <p>
-                    Aprenda como proteger dados, sistemas,
-                    senhas e informações contra ameaças digitais.
-                </p>
-                <button onclick="mostrarInfo('seguranca')">
-                    Saiba mais
-                </button>
+                Você está preparado para começar essa jornada?
+            </p>
+
+            <button class="iniciar-btn">Iniciar</button>
+        </div>
+
+        <!-- TELA DAS ÁREAS -->
+        <div class="tela-cursos">
+
+            <h2>Escolha sua área de interesse!</h2>
+
+            <div class="container">
+
+                <div class="card">
+                    <h3>🔐 Segurança da Informação</h3>
+                    <p>
+                        Descubra como proteger dados,
+                        sistemas e informações digitais.
+                    </p>
+                    <button onclick="mostrarInfo('seguranca')">
+                        Explorar
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>🎮 Game Designer</h3>
+                    <p>
+                        Conheça o universo da criação
+                        de jogos, personagens e histórias.
+                    </p>
+                    <button onclick="mostrarInfo('game')">
+                        Explorar
+                    </button>
+                </div>
+
+                <div class="card">
+                    <h3>💻 Ciência da Computação</h3>
+                    <p>
+                        Aprenda sobre programação,
+                        algoritmos e computadores.
+                    </p>
+                    <button onclick="mostrarInfo('computacao')">
+                        Explorar
+                    </button>
+                </div>
+
             </div>
 
-            <div class="card">
-                <div class="emoji">🎮</div>
-                <h3>Game Designer</h3>
-                <p>
-                    Crie jogos, personagens, histórias,
-                    cenários e experiências divertidas.
+            <div class="resultado">
+                <h2>Descubra mais!</h2>
+                <p id="descricao">
+                    Escolha uma das áreas acima.
                 </p>
-                <button onclick="mostrarInfo('game')">
-                    Saiba mais
-                </button>
             </div>
 
-            <div class="card">
-                <div class="emoji">💻</div>
-                <h3>Ciência da Computação</h3>
-                <p>
-                    Descubra como funcionam os computadores,
-                    programas, algoritmos e tecnologias.
-                </p>
-                <button onclick="mostrarInfo('computacao')">
-                    Saiba mais
-                </button>
-            </div>
+            <button class="novamente-btn">
+                Voltar ao início
+            </button>
 
         </div>
-    </section>
 
-    <section class="sobre" id="sobre">
-        <h2>Sobre o projeto</h2>
-        <p>
-            Este site foi criado para apresentar algumas
-            possibilidades profissionais no mundo da tecnologia.
-            Explore, aprenda e descubra novos caminhos!
-        </p>
-    </section>
-
-    <section class="resultado" id="resultado">
-        <h2>Explore uma área!</h2>
-        <p id="descricao">
-            Clique em "Saiba mais" para descobrir informações.
-        </p>
-    </section>
-
-    <footer>
-        <p>© 2026 - Mundo da Tecnologia | Projeto Educacional</p>
-    </footer>
+    </div>
 
     <script src="script.js"></script>
 
