@@ -1,53 +1,70 @@
+import { perguntas } from './perguntas.js';
 
+// Seleção dos elementos no DOM
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 const botaoIniciar = document.querySelector(".iniciar-btn");
-
 const telaInicial = document.querySelector(".tela-inicial");
+const botaoJogarNovamente = document.querySelector(".novamente-btn");
 
-const telaCursos = document.querySelector(".tela-cursos");
+let atual = 0;
+let perguntaAtual;
+let historiaFinal = "";
 
-const botaoNovamente = document.querySelector(".novamente-btn");
+// Eventos de clique para Iniciar e Reiniciar
+botaoIniciar.addEventListener('click', iniciaJogo);
+botaoJogarNovamente.addEventListener('click', reiniciaJogo);
 
-const descricao = document.querySelector("#descricao");
-
-// Evento para iniciar
-botaoIniciar.addEventListener("click", iniciaJogo);
-
-// Função para iniciar o jogo
 function iniciaJogo() {
-    telaInicial.style.display = "none";
-
-    telaCursos.style.display = "block";
+    atual = 0;
+    historiaFinal = "";
+    telaInicial.style.display = 'none';
+    caixaPerguntas.classList.add("mostrar");
+    caixaAlternativas.classList.add("mostrar");
+    caixaResultado.classList.remove("mostrar");
+    mostraPergunta();
 }
 
-// Informações das áreas
-function mostrarInfo(area) {
+function reiniciaJogo() {
+    telaInicial.style.display = 'block';
+    caixaPerguntas.classList.remove("mostrar");
+    caixaAlternativas.classList.remove("mostrar");
+    caixaResultado.classList.remove("mostrar");
+}
 
-    if (area === "seguranca") {
+function mostraPergunta() {
+    if (atual >= perguntas.length) {
+        mostraResultado();
+        return;
+    }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
+    mostraAlternativas();
+}
 
-        descricao.innerHTML =
-            "🔐 Segurança da Informação: você aprenderá a proteger dados, senhas, sistemas e informações contra ameaças digitais.";
-
-    } else if (area === "game") {
-
-        descricao.innerHTML =
-            "🎮 Game Designer: você poderá criar jogos, personagens, desafios e histórias incríveis.";
-
-    } else if (area === "computacao") {
-
-        descricao.innerHTML =
-            "💻 Ciência da Computação: você conhecerá programação, algoritmos, softwares e o funcionamento dos computadores.";
+function mostraAlternativas() {
+    for (const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa.texto;
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa));
+        caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
 
-// Evento para voltar ao início
-botaoNovamente.addEventListener("click", jogarNovamente);
+function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = opcaoSelecionada.afirmacao;
+    historiaFinal += afirmacoes + " ";
+    atual++;
+    mostraPergunta();
+}
 
-function jogarNovamente() {
-
-    telaCursos.style.display = "none";
-
-    telaInicial.style.display = "block";
-
-    descricao.innerHTML =
-        "Escolha uma das áreas acima.";
+function mostraResultado() {
+    caixaPerguntas.classList.remove("mostrar");
+    caixaAlternativas.classList.remove("mostrar");
+    caixaResultado.classList.add("mostrar");
+    textoResultado.textContent = historiaFinal.trim();
 }
